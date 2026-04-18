@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base styles ──────────────────────────────────────── */
+@layer base {
+  /* Light mode defaults */
+  body {
+    @apply bg-white text-surface-800 font-sans antialiased transition-colors duration-300;
+  }
+
+  /* Dark mode body */
+  .dark body {
+    @apply bg-surface-900 text-gray-100;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-surface-100;
+  }
+
+  .dark ::-webkit-scrollbar-track {
+    @apply bg-surface-800;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-300 rounded-full;
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    @apply bg-surface-700 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-500;
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-600;
+  }
+}
+
+/* ─── Component styles ─────────────────────────────────── */
+@layer components {
+  /* Card — light */
+  .card {
+    @apply bg-white border border-surface-200 rounded-md p-5 shadow-sm transition-colors duration-300;
+  }
+
+  /* Card — dark */
+  .dark .card {
+    @apply bg-surface-800 border-surface-700 shadow-sm;
+  }
+
+  .card-header {
+    @apply text-sm font-semibold text-surface-600 uppercase tracking-wider mb-4 flex items-center gap-2;
+  }
+
+  .dark .card-header {
+    @apply text-surface-300;
+  }
+
+  .badge-warning {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-yellow-100 text-yellow-700 border border-yellow-300;
+  }
+
+  .dark .badge-warning {
+    @apply bg-yellow-900/40 text-yellow-400 border-yellow-600/40;
+  }
+
+  .badge-critical {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-red-100 text-red-700 border border-red-300;
+  }
+
+  .dark .badge-critical {
+    @apply bg-red-900/40 text-red-400 border-red-600/40;
+  }
+
+  .connection-dot {
+    @apply w-2.5 h-2.5 rounded-full;
+  }
+
+  .connection-dot.connected {
+    @apply bg-emerald-500 animate-pulse-dot;
+  }
+
+  .connection-dot.connecting {
+    @apply bg-yellow-500 animate-pulse;
+  }
+
+  .connection-dot.disconnected {
+    @apply bg-red-500;
+  }
+}
+
+/* ─── Leaflet map overrides ────────────────────────────── */
+
+/* Light mode map */
+.leaflet-container {
+  background: #f0f4f8 !important;
+  border-radius: 0.75rem;
+}
+
+.dark .leaflet-container {
+  background: #0f172a !important;
+}
+
+.leaflet-control-attribution {
+  background: rgba(255, 255, 255, 0.85) !important;
+  color: #64748b !important;
+  font-size: 10px !important;
+}
+
+.dark .leaflet-control-attribution {
+  background: rgba(15, 23, 42, 0.8) !important;
+  color: #94a3b8 !important;
+}
+
+.leaflet-control-attribution a {
+  color: #4f46e5 !important;
+}
+
+.dark .leaflet-control-attribution a {
+  color: #818cf8 !important;
+}
