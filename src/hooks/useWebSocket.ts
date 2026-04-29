@@ -7,7 +7,7 @@ import type { ConnectionStatus, EditStats, WikiStat, BotRatioStat, AlertEvent, W
 
 
 
-const WS_URL = 'http://localhost:8080/ws';
+const WS_URL = import.meta.env.VITE_WS_URL || 'http://localhost:8080/ws';
 const RECONNECT_DELAY = 5000;
 
 export function useWebSocket(): ConnectionStatus {
